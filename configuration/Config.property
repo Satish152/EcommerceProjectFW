@@ -1,0 +1,4 @@
+ChromeDriver=H:\\files\\chromedriver.exe
+FireFoxDriver=H:\\files\\geckodriver-v0.21.0-win32.zip
+IEDriver=H:\\files\\Downloads\\IEDriverServernew.exe
+URL=http://automationpractice.com/index.php
