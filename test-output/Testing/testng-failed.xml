@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Testing]">
+  <test thread-count="5" name="Tests(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="testCaseWithKeywordFramework.TestCase3_Register">
+        <methods>
+          <include name="browsernav"/>
+          <include name="close"/>
+          <include name="register"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- testCaseWithKeywordFramework.TestCase3_Register -->
+    </classes>
+  </test> <!-- Tests(failed) -->
+</suite> <!-- Failed suite [Testing] -->
