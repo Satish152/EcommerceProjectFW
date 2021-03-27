@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.Array;
@@ -16,6 +17,7 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -33,82 +35,18 @@ public class FunctionLibrary {
 	  static WebElement ForgotPwd;
 	  static WebElement Signin;
 	  String condition;
-	  static WebElement Proceed;static WebElement deliverytab;
-	  static WebElement email;static WebElement pwd;static WebElement login;
+	  static WebElement Proceed;
+	  static WebElement deliverytab;
+	  static WebElement email;
+	  static WebElement pwd;static WebElement login;
 	  static LoadExcel TestData=new LoadExcel();
 		
 	public FunctionLibrary(WebDriver driver){
-		this.driver=driver;
-		
+		FunctionLibrary.driver=driver;	
 	}
 	
 	//Test Case executable method
-	public void TestCaseExecutor(Class classname) throws ClassNotFoundException{
-		
-		FunctionLibrary lib=new FunctionLibrary(driver);
-		 TestData.loadExcelSheet();
-		for(int Tests=1;Tests<TestData.sheet.getLastRowNum()+1;Tests++)  //Getting TestName
-		{
-		   String ClassName=classname.getSimpleName();
-		   
-             String TestName=TestData.sheet.getRow(Tests).getCell(0).getStringCellValue().trim();
-		     if(ClassName.equals(TestName)) //Comparing TestNames from sheet
-             {
-              String MethodName=TestData.sheet.getRow(Tests).getCell(2).getStringCellValue().trim(); //Method Name from Excel
-              try{	
-					int parameterCount=(int) TestData.sheet.getRow(Tests).getCell(3).getNumericCellValue();   //parameter count from excel
-					
-					for(Method m: FunctionLibrary.class.getMethods())    //reading Method names from Functional library
-					{  
-						if(m.getName().equals(MethodName))  //Compapring Method Name with Excel method name
-						{
-							if(m.getParameterCount()==parameterCount)   //Comparing paraameter Count from both FL and Excel
-							{
-								Class<?> param[]=new Class[parameterCount]; //Creating an array with class
-			
-								for(int i=0;i<m.getParameterCount();i++) 
-								{
-									param[i]=m.getParameterTypes()[i];  //assigning values in to array with parameter type
-									
-								}
-								
-								Method method=FunctionLibrary.class.getMethod(MethodName,param);
-								method.invoke(lib,FunctionLibrary.ParameterData(parameterCount, Tests));	
-							}
-					}else if(m.getName().equals(""))
-					{
-						System.out.println("empty method name");
-						break;
-					}
-				}
-		}catch(InvocationTargetException | NoSuchMethodException | IllegalAccessException | NullPointerException  e){                               
-				
-			e.printStackTrace();
-				assertTrue(false);
-			}
-		  }
-		}	
-	}
-	
-public static String[] ParameterData(int ParameterCount,int RowNum){
-	String[] data=new String[ParameterCount];
-	LoadExcel TestData=new LoadExcel();
-	int cell=4;
-	for(int i=0;i<ParameterCount;i++){
-		String parameter=TestData.sheet.getRow(RowNum).getCell(cell).getStringCellValue();
-		if(parameter.equals("") | parameter.equals(null)){	
-			XSSFCell Cell=TestData.sheet.getRow(RowNum).getCell(cell);
-					parameter=TestData.sheet.getRow(RowNum).getCell(cell).getStringCellValue();
-			data[i]=parameter;	
-		}else
-		{
-	     	data[i]=parameter;
-	     
-		}
-	cell=cell+1;
-	}
-	return data;
-}
+
 	//this function validate that webelement is displaying on the webpage or not
 	public static void setselectExist(WebElement ele)
 	{
@@ -118,6 +56,10 @@ public static String[] ParameterData(int ParameterCount,int RowNum){
 		{
 			assertTrue(false);
 		}
+	}
+	
+	public void test(String name){
+		System.out.println("Hi "+name);
 	}
 	
 	//this function validate that Webelement is Enabled on the Webpage or not
@@ -248,7 +190,7 @@ public static String[] ParameterData(int ParameterCount,int RowNum){
 			Thread.sleep(4000);
 			CartItemsCount=driver.findElement(By.xpath("//div[@class='shopping_cart']/a/span[1]")); 
 			String Itemsadded=CartItemsCount.getAttribute("textContent").trim();
-			Itemsadded.valueOf(true);
+			String.valueOf(true);
 			FunctionLibrary.SearchValueExist(Itemsadded, "1");
 			int count=Integer.parseInt(Itemsadded);
 			if(count>0)

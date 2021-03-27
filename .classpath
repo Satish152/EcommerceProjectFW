@@ -13,13 +13,12 @@
 	<classpathentry kind="lib" path="H:/files/poi-3.17/poi-ooxml-schemas-3.17.jar"/>
 	<classpathentry kind="lib" path="H:/files/poi-3.17/poi-scratchpad-3.17.jar"/>
 	<classpathentry kind="lib" path="H:/files/selenium-server-standalone-3.8.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/DELL/Downloads/guice-3.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/DELL/Downloads/reportng-1.1.4.jar"/>
 	<classpathentry kind="lib" path="H:/files/bsh-2.0b5.jar"/>
 	<classpathentry kind="lib" path="H:/files/commons-collections4-4.0.jar"/>
 	<classpathentry kind="lib" path="H:/files/jcommander-1.26-sources.jar"/>
 	<classpathentry kind="lib" path="H:/files/jcommander-1.27.jar"/>
 	<classpathentry kind="lib" path="H:/files/xmlbeans-2.3.0.jar"/>
 	<classpathentry kind="lib" path="H:/files/Cucumber Updated/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/DELL/Downloads/commons-collections4-4.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,4 +1,4 @@
 ChromeDriver=H:\\files\\chromedriver.exe
-FireFoxDriver=H:\\files\\geckodriver-v0.21.0-win32.zip
+FireFoxDriver=C:\\Users\\DELL\\AppData\\Roaming\\npm\\node_modules\\webdriver-manager\\selenium\\geckodriver-v0.24.0.exe
 IEDriver=H:\\files\\Downloads\\IEDriverServernew.exe
 URL=http://automationpractice.com/index.php

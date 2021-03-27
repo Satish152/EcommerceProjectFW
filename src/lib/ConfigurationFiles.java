@@ -2,7 +2,7 @@ package lib;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Properties;
 
 
@@ -11,7 +11,7 @@ public class ConfigurationFiles {
 	public Properties properties;
 	
 	
-	public ConfigurationFiles() throws Exception{
+	public ConfigurationFiles() throws IOException{
 		File file=new File("H:\\workspace\\ECommerce_TestCases\\configuration\\Config.property");
 		FileInputStream fis=new FileInputStream(file);
 		properties=new Properties();
